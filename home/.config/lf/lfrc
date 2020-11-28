@@ -1,0 +1,37 @@
+# Keybindings
+map r updir
+map s open
+map i up
+map t down
+
+map I half-up
+map T half-down
+
+map gg top
+map G bottom
+
+map v invert
+map u unselect
+map y copy
+map p paste
+
+map n rename
+
+map f find
+map , find-next
+map ; find-prev
+
+map / search
+map l search-next
+map L search-prev
+
+# Settings
+
+# Custom open command
+cmd open ${{
+	case $(file --mime-type $f -b) in
+		text/*) $EDITOR $f;;
+		video/*|image/*|application/pdf) $OPENER $f & disown;;
+		*) $OPENER $f;;
+	esac
+}}
