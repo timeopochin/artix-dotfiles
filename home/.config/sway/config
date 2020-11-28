@@ -1,3 +1,7 @@
+input * {
+	xkb_layout "rsit"
+}
+
 # Variables
 set $mod Mod4
 set $left r

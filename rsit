@@ -1,0 +1,170 @@
+xkb_symbols "basic" {
+	name[group1]="English";
+	key <AE02> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ z,	Z,	bar ]
+	};
+	key <AE03> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ c,	C,	ampersand ]
+	};
+	key <AE04> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ y,	Y,	bracketleft ]
+	};
+	key <AE05> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ w,	W,	bracketright ]
+	};
+	key <AE06> {
+		type[group1]= "ALPHABETIC",
+		symbols[Group1] = [ k,	K ]
+	};
+	key <AE07> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ x,	X,	percent ]
+	};
+	key <AE08> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ l,	L,	7 ]
+	};
+	key <AE09> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ u,	U,	8 ]
+	};
+	key <AE10> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ comma,	semicolon,	9 ]
+	};
+	key <AE11> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ q,	Q,	asterisk ]
+	};
+	key <TAB> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ slash,	NoSymbol,	dead_circumflex ]
+	};
+	key <AD01> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ r,	R,	dollar ]
+	};
+	key <AD02> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ s,	S,	at ]
+	};
+	key <AD03> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ i,	I,	parenleft,	dead_diaeresis ]
+	};
+	key <AD04> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ t,	T,	parenright ]
+	};
+	key <AD05> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ g,	G,	numbersign ]
+	};
+	key <AD06> { 		[ ] };
+	key <AD07> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ m,	M,	minus ]
+	};
+	key <AD08> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ n,	N,	4 ]
+	};
+	key <AD09> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ e,	E,	5 ]
+	};
+	key <AD10> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ a,	A,	6,	ae ]
+	};
+	key <AD11> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ o,	O,	plus,	oe ]
+	};
+	key <AD12> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ asciitilde,	NoSymbol,	dead_acute ]
+	};
+	key <BKSL> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ grave,	bar,	dead_grave ]
+	};
+	key <CAPS> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ backslash,	NoSymbol,	ccedilla,	Ccedilla ]
+	};
+	key <AC01> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ j,	J,	brokenbar ]
+	};
+	key <AC02> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ f,	F,	less,	guillemotleft ]
+	};
+	key <AC03> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ p,	P,	braceleft ]
+	};
+	key <AC04> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ d,	D,	braceright ]
+	};
+	key <AC05> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ b,	B,	greater,	guillemotright ]
+	};
+	key <AC07> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ v,	V,	0 ]
+	};
+	key <AC08> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ h,	H,	1 ]
+	};
+	key <AC09> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ apostrophe,	quotedbl,	2,	rightsinglequotemark ]
+	};
+	key <AC10> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ period,	colon,	3 ]
+	};
+	key <AC11> {
+		type[group1]= "THREE_LEVEL",
+		symbols[Group1] = [ question,	exclam,	equal ]
+	};
+	key <LSGT> {
+		type[group1]= "FOUR_LEVEL",
+		symbols[Group1] = [ less,	greater,	bar,	brokenbar ]
+	};
+	key <AB02> { 		[ Tab ] };
+	key <AB03> {
+		symbols[Group1] = [ Hyper_L ]
+	};
+	key <AB04> {
+		type[group1]= "TWO_LEVEL",
+		symbols[Group1] = [ space,	underscore ]
+	};
+	key <AB05> {
+		symbols[Group1] = [ Super_L ]
+	};
+	key <AB06> {
+		symbols[Group1] = [ Control_L ]
+	};
+	modifier_map Control { <AB06> };
+	modifier_map Mod3 { <AB03> };
+	key <AB07> {
+		symbols[Group1] = [ Shift_L ]
+	};
+	key <AB08> {
+		symbols[Group1] = [ ISO_Level3_Shift ]
+	};
+	key <RALT> {
+		type[group1]= "TWO_LEVEL",
+		symbols[Group1] = [ Shift_L,	Shift_L ]
+	};
+};
