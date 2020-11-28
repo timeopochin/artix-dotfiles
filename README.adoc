@@ -1,0 +1,36 @@
+= artix-dotfiles
+
+My configurations and scripts for my laptop running artix linux. This repository is intended only for my system and scripts are likely to fail on other systems.
+
+== Installation
+
+The setup script is meant to be run after a very basic artix installation. When following the https://wiki.artixlinux.org/Main/Installation[artix installation guide] you can run the command below immediately after the "https://wiki.artixlinux.org/Main/Installation#Reboot_the_system[Reboot the system]" section.
+
+```
+bash -c "$(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/setup-artix-dotfiles.sh)"
+```
+
+[NOTE]
+====
+Make sure that you are not running the script as root but that you do have sudo privileges.
+====
+
+== File structure
+
+I, and I believe many others, dislike the clutter of the home directory; there is something just so satisfying about getting a clean output from `ls -al`. I have tried before to clear my home directory, but you can never get it __perfect__. This is why I decided to simply move away from it and keep all the default configuration locations; after all, if I'm the one unhappy with a cluttered home, I should be the one to find a __new home__. I call this home the __trunk__: the starting point of my personal directory tree.
+
+```
+root (/)
+└─ home
+   └─ user (~)
+      ├─ .config
+      ├─ trunk (¦)
+      │  └─ repositories
+      │     ├─ mine
+      │     │  └─ artix-dotfiles
+      │     └─ others
+      │        └─ yay
+      ├─ scripts
+      └─ temporary-files
+```
+

@@ -4,8 +4,8 @@ map s open
 map i up
 map t down
 
-map I half-up
-map T half-down
+map <c-u> half-up
+map <c-d> half-down
 
 map gg top
 map G bottom

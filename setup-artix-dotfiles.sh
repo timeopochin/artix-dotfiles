@@ -9,8 +9,8 @@ mkdir $TRUNK
 mkdir $REPOSDIR
 mkdir $REPOSDIR/mine
 mkdir $REPOSDIR/others
-mkdir ~/temporary-files
 mkdir ~/scripts
+mkdir ~/temporary-files
 
 # Install packages
 sudo pacman -Syu
@@ -23,7 +23,8 @@ sudo pacman -S \
 	feh \
 	mpv \
 	zathura-pdf-mupdf \
-	qutebrowser qt5-wayland
+	qutebrowser qt5-wayland \
+	texlive-core
 
 # Install AUR packages
 git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
@@ -35,6 +36,7 @@ yay -S \
 # Get the dotfiles
 git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
 $REPOSDIR/mine/artix-dotfiles/sync-artix-dotfiles.sh $REPOSDIR/mine/artix-dotfiles
+sh -c 'curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Change the default shell
 chsh $USER -s /bin/zsh

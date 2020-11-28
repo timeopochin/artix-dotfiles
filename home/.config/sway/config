@@ -1,0 +1,72 @@
+# Variables
+set $mod Mod4
+set $left r
+set $right s
+set $up i
+set $down t
+set $term foot
+set $menu bemenu-run | xargs swaymsg exec
+
+# Key bindings
+bindsym $mod+Return exec $term
+bindsym $mod+c kill
+bindsym $mod+d exec $menu
+bindsym $mod+Escape reload
+#bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch to workspace
+bindsym $mod+h workspace number 1
+bindsym $mod+apostrophe workspace number 2
+bindsym $mod+period workspace number 3
+bindsym $mod+n workspace number 4
+bindsym $mod+e workspace number 5
+bindsym $mod+a workspace number 6
+bindsym $mod+l workspace number 7
+bindsym $mod+u workspace number 8
+bindsym $mod+comma workspace number 9
+
+# Move focused container to workspace
+bindsym $mod+Shift+h move container to workspace number 1
+bindsym $mod+Shift+apostrophe move container to workspace number 2
+bindsym $mod+Shift+period move container to workspace number 3
+bindsym $mod+Shift+n move container to workspace number 4
+bindsym $mod+Shift+e move container to workspace number 5
+bindsym $mod+Shift+a move container to workspace number 6
+bindsym $mod+Shift+l move container to workspace number 7
+bindsym $mod+Shift+u move container to workspace number 8
+bindsym $mod+Shift+comma move container to workspace number 9
+
+# You can "split" the current object of your focus with respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+m floating toggle
+bindsym $mod+m focus mode_toggle
+
+# Move focus to the parent container
+#bindsym $mod+a focus parent
+
+# Resizing containers:
+bindsym $mod+Control+$left resize shrink width 10px
+bindsym $mod+Control+$down resize grow height 10px
+bindsym $mod+Control+$up resize shrink height 10px
+bindsym $mod+Control+$right resize grow width 10px

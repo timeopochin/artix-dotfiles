@@ -23,5 +23,5 @@ augroup END
 " Sync artix-dotfiles
 augroup sync_artix_dotfiles
 	autocmd!
-	autocmd	BufWritePost	$ARTIX_DOTFILES_DIR/home/**	:!~/scripts/sync-artix-dotfiles.sh
+	autocmd	BufWritePost	$ARTIX_DOTFILES_DIR/home/**	:silent !~/scripts/sync-artix-dotfiles.sh
 augroup END
