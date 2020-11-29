@@ -29,7 +29,7 @@ root (/)
       │     ├─ mine
       │     │  └─ artix-dotfiles
       │     └─ others
-      │        └─ yay
+      │         └─ yay
       ├─ scripts
       └─ temporary-files
 ```
