@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ping -q -c 1 -W 8.8.8.8 > /dev/null
+if ping -c 1 artixlinux.org > /dev/null
 then
 	read -p 'Root partition: ' ROOT_PART
 	read -p 'Boot partition: ' BOOT_PART
