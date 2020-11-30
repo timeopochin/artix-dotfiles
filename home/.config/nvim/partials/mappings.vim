@@ -18,4 +18,4 @@ nnoremap h i
 
 " saving
 "nnoremap <return> :wq<cr>
-inoremap <esc> <esc>:w<cr>
+tnoremap <c-n> <c-\><c-n>

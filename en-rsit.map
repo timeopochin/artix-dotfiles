@@ -12,11 +12,11 @@ keycode   7 = k
 keycode   8 = x
 keycode   9 = l
 keycode  10 = u
-keycode  11 = comma		semicolon
+keycode  11 = comma			semicolon
 keycode  12 = q
 
 # Second row
-keycode  15 = slash		asciicircum
+keycode  15 = slash			asciicircum
 keycode  16 = r
 keycode  17 = s
 keycode  18 = i
@@ -28,7 +28,7 @@ keycode  23 = n
 keycode  24 = e
 keycode  25 = a
 keycode  26 = o
-keycode  27 = minus		asciitilde
+keycode  27 = minus			asciitilde
 
 # Third row
 keycode  58 = backslash
