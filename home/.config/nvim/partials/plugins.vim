@@ -14,3 +14,4 @@ nnoremap l :Lf<cr>
 colorscheme gruvbox
 let g:vimtex_mappings_enabled=0
 let g:vimtex_view_method='zathura'
+

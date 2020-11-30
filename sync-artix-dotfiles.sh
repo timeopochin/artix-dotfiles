@@ -8,7 +8,7 @@ then
 	echo 'Copying files...'
 	cp -r $ARTIX_DOTFILES_DIR/home/.config ~
 	cp $ARTIX_DOTFILES_DIR/home/.zshrc ~
-	cp -r $ARTIX_DOTFILES_DIR/home/scripts ~
+	# cp -r $ARTIX_DOTFILES_DIR/home/scripts ~
 	echo 'Done copying files'
 elif [[ $ARTIX_DOTFILES_DIR ]]
 then

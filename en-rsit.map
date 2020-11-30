@@ -1,0 +1,98 @@
+include "linux-with-alt-and-altgr"
+keymaps 0-15
+
+### Base
+# First row
+keycode   3 = z
+keycode   4 = c
+keycode   5 = y
+keycode   6 = w
+keycode   7 = k
+
+keycode   8 = x
+keycode   9 = l
+keycode  10 = u
+keycode  11 = comma		semicolon
+keycode  12 = q
+
+# Second row
+keycode  15 = slash		asciicircum
+keycode  16 = r
+keycode  17 = s
+keycode  18 = i
+keycode  19 = t
+keycode  20 = g
+
+keycode  22 = m
+keycode  23 = n
+keycode  24 = e
+keycode  25 = a
+keycode  26 = o
+keycode  27 = minus		asciitilde
+
+# Third row
+keycode  58 = backslash
+keycode  30 = j
+keycode  31 = f
+keycode  32 = p
+keycode  33 = d
+keycode  34 = b
+
+keycode  36 = v
+keycode  37 = h
+keycode  38 = apostrophe	quotedbl
+keycode  39 = period		colon
+keycode  40 = question		exclam
+keycode  43 = grave
+
+# Fourth row
+keycode  46 = Tab
+keycode  47 = space			underscore
+keycode  48 = Escape
+
+keycode  49 = Delete
+keycode  50 = Shift
+keycode  51 = AltGr
+
+# Last row
+keycode  57 = Return
+keycode 100 = Control
+
+### AltGr
+# First row
+AltGr keycode  3 = bar
+AltGr keycode  4 = ampersand
+AltGr keycode  5 = bracketleft
+AltGr keycode  6 = bracketright
+
+AltGr keycode  9 = seven
+AltGr keycode 10 = eight
+AltGr keycode 11 = nine
+AltGr keycode 12 = asterisk
+
+# Second row
+AltGr keycode 16 = dollar
+AltGr keycode 17 = at
+AltGr keycode 18 = parenleft
+AltGr keycode 19 = parenright
+AltGr keycode 20 = numbersign
+
+AltGr keycode 22 = percent
+AltGr keycode 23 = four
+AltGr keycode 24 = five
+AltGr keycode 25 = six
+AltGr keycode 26 = plus
+
+# Third row
+AltGr keycode 30 = brokenbar
+AltGr keycode 31 = less
+AltGr keycode 32 = braceleft
+AltGr keycode 33 = braceright
+AltGr keycode 34 = greater
+
+AltGr keycode 36 = zero
+AltGr keycode 37 = one
+AltGr keycode 38 = two
+AltGr keycode 39 = three
+AltGr keycode 40 = equal
+

@@ -24,7 +24,8 @@ sudo pacman -S \
 	mpv \
 	zathura-pdf-mupdf \
 	qutebrowser qt5-wayland \
-	texlive-core
+	texlive-core \
+	python3 python-pip
 
 # Install AUR packages
 git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
@@ -36,7 +37,8 @@ yay -S \
 # Get the dotfiles
 git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
 $REPOSDIR/mine/artix-dotfiles/sync-artix-dotfiles.sh $REPOSDIR/mine/artix-dotfiles
-sh -c 'curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sh -c 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+python3 -m pip install --user --upgrade pynvim
 
 # Change the default shell
 chsh $USER -s /bin/zsh
