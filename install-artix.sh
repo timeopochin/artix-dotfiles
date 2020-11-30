@@ -4,8 +4,6 @@ if ping -c 1 artixlinux.org > /dev/null
 then
 	read -p 'Root partition: ' ROOT_PART
 	read -p 'Boot partition: ' BOOT_PART
-	read -p 'Username: ' USERNAME
-	read -p 'Host name: ' HOST_NAME
 
 	sudo mkfs.ext4 $ROOT_PART
 	sudo mkfs.vfat $BOOT_PART
