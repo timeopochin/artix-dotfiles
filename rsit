@@ -54,6 +54,6 @@ xkb_symbols "basic" {
 	key <RALT> { [ Shift_L ] };
 	key <SPCE> { [ Return ] };
 
-	modifier_map Control { <AB06> };
+	modifier_map Control { <AB09> };
 	modifier_map Mod3    { <AB02> };
 };

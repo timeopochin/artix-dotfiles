@@ -25,14 +25,17 @@ sudo pacman -S \
 	zathura-pdf-mupdf \
 	qutebrowser qt5-wayland \
 	texlive-core \
-	python3 python-pip
+	python3 python-pip \
+	man-db \
+	ttf-fantasque-sans-mono
 
 # Install AUR packages
 git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
 (cd $REPOSDIR/others/yay && makepkg -si)
 yay -S \
-	foot-git foot-terminfo-git \
-	lf-git
+	foot foot-terminfo \
+	lf \
+	squeekboard
 
 # Get the dotfiles
 git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles

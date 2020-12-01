@@ -6,6 +6,8 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'morhetz/gruvbox'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
+Plug 'sirtaj/vim-openscad'
+Plug 'habamax/vim-asciidoctor'
 
 call plug#end()
 

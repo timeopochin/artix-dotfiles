@@ -17,5 +17,5 @@ nnoremap h i
 "nnoremap <c-t> :m .+1<cr>==
 
 " saving
-"nnoremap <return> :wq<cr>
+inoremap <esc> <esc>:w<cr>
 tnoremap <c-n> <c-\><c-n>

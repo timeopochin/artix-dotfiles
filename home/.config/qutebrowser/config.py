@@ -2,6 +2,7 @@
 c.hints.chars = 'rsitneao'
 c.statusbar.show = 'never'
 c.tabs.show = 'switching'
+c.url.searchengines = {'DEFAULT': 'https://google.fr/search?q={}'}
 
 # Keybindings
 config.bind('r', 'scroll left')
