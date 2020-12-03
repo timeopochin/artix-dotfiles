@@ -1,15 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 [[ $1 ]] && ARTIX_DOTFILES_DIR=$1
-[[ ! $ARTIX_DOTFILES_DIR ]] && ARTIX_DOTFILES_DIR=~/¦/repositories/mine/artix-dotfiles
+[[ ! $ARTIX_DOTFILES_DIR ]] && ARTIX_DOTFILES_DIR=$HOME/¦/repositories/mine/artix-dotfiles
 
 if [[ -d $ARTIX_DOTFILES_DIR ]]
 then
-	echo 'Copying files...'
-	cp -r $ARTIX_DOTFILES_DIR/home/.config ~
-	cp $ARTIX_DOTFILES_DIR/home/.zshrc ~
-	# cp -r $ARTIX_DOTFILES_DIR/home/scripts ~
-	echo 'Done copying files'
+	cp -r $ARTIX_DOTFILES_DIR/home/.config $HOME
+	cp $ARTIX_DOTFILES_DIR/home/.zshrc $HOME
+	# cp -r $ARTIX_DOTFILES_DIR/home/scripts $HOME
+	echo 'Done copying config files'
 elif [[ $ARTIX_DOTFILES_DIR ]]
 then
 	echo "$ARTIX_DOTFILES_DIR is not a directory"

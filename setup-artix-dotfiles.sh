@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 # Constants
-TRUNK=~/¦
+TRUNK=$HOME/¦
 REPOSDIR=$TRUNK/repositories
 
 # Create file structure
@@ -9,14 +9,14 @@ mkdir $TRUNK
 mkdir $REPOSDIR
 mkdir $REPOSDIR/mine
 mkdir $REPOSDIR/others
-mkdir ~/scripts
-mkdir ~/temporary-files
+mkdir $HOME/scripts
+mkdir $HOME/temporary-files
 
 # Install packages
 sudo pacman -Syu
 sudo pacman -S \
 	git \
-	neovim \
+	neovim python-pynvim \
 	zsh zsh-syntax-highlighting \
 	sway \
 	bemenu-wlroots \
@@ -25,9 +25,9 @@ sudo pacman -S \
 	zathura-pdf-mupdf \
 	qutebrowser qt5-wayland \
 	texlive-core \
-	python3 python-pip \
 	man-db \
-	ttf-fantasque-sans-mono
+	ttf-fantasque-sans-mono \
+	openscad
 
 # Install AUR packages
 git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
@@ -40,8 +40,8 @@ yay -S \
 # Get the dotfiles
 git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
 $REPOSDIR/mine/artix-dotfiles/sync-artix-dotfiles.sh $REPOSDIR/mine/artix-dotfiles
-sh -c 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-python3 -m pip install --user --upgrade pynvim
+sh -c 'curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sudo cp $REPOSDIR/mine/artix-dotfiles/rsit /usr/share/X11/xkb/symbols/rsit
 
 # Change the default shell
 chsh $USER -s /bin/zsh

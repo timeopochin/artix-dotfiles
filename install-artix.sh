@@ -1,27 +1,30 @@
 #!/bin/sh
 
-if ping -c 1 artixlinux.org > /dev/null
-then
-	read -p 'Root partition: ' ROOT_PART
-	read -p 'Boot partition: ' BOOT_PART
+curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/en-rsit.map > en-rsit.map
+sudo loadkeys en-rsit.map
 
-	sudo mkfs.ext4 $ROOT_PART
-	sudo mkfs.vfat $BOOT_PART
+read -p 'Root partition: ' ROOT_PART
+read -p 'Boot partition: ' BOOT_PART
 
-	sudo mount $ROOT_PART /mnt
-	sudo mkdir /mnt/boot
-	sudo mount $BOOT_PART /mnt/boot
+sudo mkfs.ext4 $ROOT_PART
+sudo mkfs.vfat $BOOT_PART
 
-	sudo basestrap /mnt base base-devel runit elogind-runit
-	sudo basestrap /mnt linux linux-firmware
+sudo mount $ROOT_PART /mnt
+sudo mkdir /mnt/boot
+sudo mount $BOOT_PART /mnt/boot
 
-	sudo fstabgen -U /mnt >> fstab
-	sudo cp fstab /mnt/etc/fstab
+sudo basestrap /mnt \
+	base \
+	base-devel \
+	runit \
+	elogind-runit \
+	linux \
+	linux-firmware
 
-	artools-chroot /mnt
+fstabgen -U /mnt >> fstab
+sudo cp fstab /mnt/etc/fstab
 
-	umount -R /mnt
-	reboot
-else
-	echo 'Connect to the internet before installation'
-fi
+artools-chroot /mnt "sh -c $(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/install-artix-post-chroot.sh)"
+
+umount -R /mnt
+reboot

@@ -7,7 +7,7 @@ My configurations and scripts for my laptop running artix linux. This repository
 The setup script is meant to be run after a very basic artix installation. When following the https://wiki.artixlinux.org/Main/Installation[artix installation guide] you can run the command below immediately after the "https://wiki.artixlinux.org/Main/Installation#Reboot_the_system[Reboot the system]" section.
 
 ```
-bash -c "$(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/setup-artix-dotfiles.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/setup-artix-dotfiles.sh)"
 ```
 
 [NOTE]
