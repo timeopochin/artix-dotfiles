@@ -1,7 +1,7 @@
 #!/bin/sh
 
-curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/en-rsit.map > en-rsit.map
-sudo loadkeys en-rsit.map
+#curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/en-rsit.map > en-rsit.map
+#sudo loadkeys en-rsit.map
 
 read -p 'Root partition: ' ROOT_PART
 read -p 'Boot partition: ' BOOT_PART

@@ -29,10 +29,10 @@ echo '::1			localhost' >> /etc/hosts
 pacman -S connman-runit
 ln -s /etc/runit/sv/connmand /etc/runit/runsvdir/default
 
-KEYMAPDIR=/usr/share/kbd/keymaps/i386/rsit
-mkdir $KEYMAPDIR
-curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/en-rsit.map > $KEYMAPDIR/en-rsit.map
-gzip $KEYMAPDIR
-echo 'KEYMAP=en-rsit' > /etc/vconsole.conf
+#KEYMAPDIR=/usr/share/kbd/keymaps/i386/rsit
+#mkdir $KEYMAPDIR
+#curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/en-rsit.map > $KEYMAPDIR/en-rsit.map
+#gzip $KEYMAPDIR
+#echo 'KEYMAP=en-rsit' > /etc/vconsole.conf
 
 echo "$USERNAME ALL=(ALL) ALL" >> /etc/sudoers

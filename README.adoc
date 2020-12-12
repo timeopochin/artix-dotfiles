@@ -21,16 +21,16 @@ I, and I believe many others, dislike the clutter of the home directory; there i
 
 ```
 root (/)
-└─ home
-   └─ user (~)
-      ├─ .config
-      ├─ trunk (¦)
-      │  └─ repositories
-      │     ├─ mine
-      │     │  └─ artix-dotfiles
-      │     └─ others
-      │        └─ yay
-      ├─ scripts
-      └─ temporary-files
+`- home
+   `- user (~)
+      |- .config
+      |- trunk (¦)
+      |  `- repositories
+      |     |- mine
+      |     |  └- artix-dotfiles
+      |     `- others
+      |        `- yay
+      |- scripts
+      `- temporary-files
 ```
 

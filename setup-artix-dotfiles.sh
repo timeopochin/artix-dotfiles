@@ -5,16 +5,16 @@ TRUNK=$HOME/¦
 REPOSDIR=$TRUNK/repositories
 
 # Create file structure
-mkdir $TRUNK
-mkdir $REPOSDIR
-mkdir $REPOSDIR/mine
-mkdir $REPOSDIR/others
-mkdir $HOME/scripts
-mkdir $HOME/temporary-files
+[ ! -d $TRUNK ] && mkdir $TRUNK
+[ ! -d $REPOSDIR ] && mkdir $REPOSDIR
+[ ! -d $REPOSDIR/mine ] && mkdir $REPOSDIR/mine
+[ ! -d $REPOSDIR/others ] && mkdir $REPOSDIR/others
+[ ! -d $HOME/scripts ] && mkdir $HOME/scripts
+[ ! -d $HOME/temporary-files ] && mkdir $HOME/temporary-files
 
 # Install packages
 sudo pacman -Syu
-sudo pacman -S \
+sudo pacman -S --needed \
 	git \
 	neovim python-pynvim \
 	zsh zsh-syntax-highlighting \
@@ -30,18 +30,30 @@ sudo pacman -S \
 	openscad
 
 # Install AUR packages
-git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
-(cd $REPOSDIR/others/yay && makepkg -si)
-yay -S \
+if ! command -v yay &> /dev/null
+then
+	git clone https://aur.archlinux.org/yay.git $REPOSDIR/others/yay
+	(cd $REPOSDIR/others/yay && makepkg -si)
+fi
+yay -S --needed \
 	foot foot-terminfo \
 	lf \
-	squeekboard
+	squeekboard \
+	typeracer
 
 # Get the dotfiles
-git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
+[ ! -d $REPOSDIR/mine/artix-dotfiles ] && git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
 $REPOSDIR/mine/artix-dotfiles/sync-artix-dotfiles.sh $REPOSDIR/mine/artix-dotfiles
 sh -c 'curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sudo cp $REPOSDIR/mine/artix-dotfiles/rsit /usr/share/X11/xkb/symbols/rsit
 
+if [ ! -f /usr/share/dbus-1/services/sm.puri.OSK0.service ]
+then
+	echo '[D-BUS Service]' > $HOME/temporary-files/sm.puri.OSK0.service
+	echo 'Name=sm.puri.OSK0' >> $HOME/temporary-files/sm.puri.OSK0.service
+	echo 'Exec=/usr/bin/squeekboard' >> $HOME/temporary-files/sm.puri.OSK0.service
+	sudo cp $HOME/temporary-files/sm.puri.OSK0.service /usr/share/dbus-1/services/sm.puri.OSK0.service
+fi
+
 # Change the default shell
-chsh $USER -s /bin/zsh
+[ $SHELL != /bin/zsh ] && chsh $USER -s /bin/zsh
