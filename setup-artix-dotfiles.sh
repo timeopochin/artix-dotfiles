@@ -24,10 +24,10 @@ sudo pacman -S --needed \
 	mpv \
 	zathura-pdf-mupdf \
 	qutebrowser qt5-wayland \
-	#texlive-core \
 	man-db \
 	ttf-fantasque-sans-mono \
 	openscad
+	#texlive-core \
 
 # Install AUR packages
 if ! command -v yay &> /dev/null
