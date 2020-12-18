@@ -16,7 +16,7 @@ REPOSDIR=$TRUNK/repositories
 sudo pacman -Syu
 sudo pacman -S --needed \
 	git \
-	neovim \ #python-pynvim \
+	neovim \
 	zsh zsh-syntax-highlighting \
 	sway \
 	bemenu-wlroots \
@@ -27,7 +27,8 @@ sudo pacman -S --needed \
 	man-db \
 	ttf-fantasque-sans-mono \
 	openscad
-	#texlive-core \
+#python-pynvim \
+#texlive-core \
 
 # Install AUR packages
 if ! command -v yay &> /dev/null
