@@ -27,7 +27,8 @@ set statusbar-fg                "#ebdbb2" # fg
 set highlight-color             "#fabd2f" # bright:yellow
 set highlight-active-color      "#fe8019" # bright:orange
 
-set default-bg                  "#282828" # bg
+#set default-bg                  "#282828" # bg
+set default-bg                  "#504945" # bg2
 set default-fg                  "#ebdbb2" # fg
 set render-loading              true
 set render-loading-bg           "#282828" # bg

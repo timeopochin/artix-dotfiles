@@ -4,8 +4,9 @@ TRUNK=~/¦
 # Environmantal variables
 export EDITOR=nvim
 export QT_QPA_PLATFORM=wayland
+export MOZ_ENABLE_WAYLAND=1
 export ARTIX_DOTFILES_DIR=$TRUNK/repositories/mine/artix-dotfiles
-export $(dbus-launch)
+#export $(dbus-launch)
 
 # Enable colors and change prompt
 PROMPT="%B %F{%(0?.green.red}•%f %F{cyan}%1~%f %b"

@@ -24,7 +24,7 @@ sudo basestrap /mnt \
 fstabgen -U /mnt >> fstab
 sudo cp fstab /mnt/etc/fstab
 
-artools-chroot /mnt "sh -c \"$(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/install-artix-post-chroot.sh)\""
+#artools-chroot /mnt "sh -c \"$(curl -fsSL https://raw.github.com/timeopochin/artix-dotfiles/master/install-artix-post-chroot.sh)\""
 
-umount -R /mnt
-reboot
+#umount -R /mnt
+#reboot
