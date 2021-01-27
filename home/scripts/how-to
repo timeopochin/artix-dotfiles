@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+	python) promt='(Python) How to'; tags='-l python';;
+	nodejs) promt='(NodeJS) How to'; tags='-l nodejs';;
+	*) promt='How to'; tags='';;
+esac
+
+query=$(echo | bemenu -p "$promt")
+
+foot $HOME/npm-global/bin/how2 $tags $query
+

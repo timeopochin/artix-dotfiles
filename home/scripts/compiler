@@ -1,0 +1,13 @@
+#!/bin/sh
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+base="${file%.*}"
+ext="${file##*.}"
+
+cd "$dir" || exit 1
+
+case "$ext" in
+	mom) preconv "$file" | eqn -Tpdf | groff -mom -Tpdf > "$base".pdf ;;
+	*) head -n1 "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+esac

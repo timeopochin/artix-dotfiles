@@ -1,0 +1,5 @@
+#!/bin/sh
+
+script=$(ls $HOME/scripts | bemenu -p 'Run script:')
+
+exec $script

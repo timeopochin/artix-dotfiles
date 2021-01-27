@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wf-recorder -g "$(slurp)" -f $HOME/temporary-files/capture.mp4
