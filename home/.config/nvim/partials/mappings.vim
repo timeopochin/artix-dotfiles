@@ -15,6 +15,9 @@ noremap k r
 noremap h i
 noremap j s
 
+" substitute
+nnoremap <a-s> :%s/
+
 " line moving
 "nnoremap <c-i> :m .-2<cr>==
 "nnoremap <c-t> :m .+1<cr>==

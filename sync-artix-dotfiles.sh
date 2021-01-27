@@ -7,7 +7,8 @@ if [ -d $ARTIX_DOTFILES_DIR ]
 then
 	cp -r $ARTIX_DOTFILES_DIR/home/.config $HOME
 	cp $ARTIX_DOTFILES_DIR/home/.zshrc $HOME
-	# cp -r $ARTIX_DOTFILES_DIR/home/scripts $HOME
+	cp -r $ARTIX_DOTFILES_DIR/home/scripts $HOME
+	chmod +x $HOME/scripts/*
 	echo 'Done copying config files'
 elif [ $ARTIX_DOTFILES_DIR ]
 then

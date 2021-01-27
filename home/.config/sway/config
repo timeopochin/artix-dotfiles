@@ -1,6 +1,7 @@
-#input * {
-	#xkb_layout "rsit"
-#}
+input * {
+	xkb_layout "fr"
+	xkb_variant "bepo"
+}
 
 input 1386:20762:Wacom_HID_511A_Finger map_to_output eDP-1
 
@@ -22,6 +23,10 @@ bindsym $mod+c kill
 bindsym $mod+d exec $menu
 bindsym $mod+Escape reload
 #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# Scripts an shortcuts
+bindsym $mod+question exec how-to
+bindsym $mod+exclam exec runscript
 
 # Move your focus around
 bindsym $mod+$left focus left

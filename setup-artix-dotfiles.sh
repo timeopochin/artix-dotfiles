@@ -26,7 +26,11 @@ sudo pacman -S --needed \
 	qutebrowser qt5-wayland \
 	man-db \
 	ttf-fantasque-sans-mono \
-	openscad
+	openscad \
+	dash \
+	light \
+	npm \
+	wf-recorder slurp
 #python-pynvim \
 #texlive-core \
 
@@ -39,8 +43,9 @@ fi
 yay -S --needed \
 	foot foot-terminfo \
 	lf \
-	#squeekboard \
-	typeracer
+	typeracer \
+	dashbinsh
+#squeekboard \
 
 # Get the dotfiles
 [ ! -d $REPOSDIR/mine/artix-dotfiles ] && git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles

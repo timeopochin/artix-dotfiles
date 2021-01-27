@@ -6,6 +6,8 @@ export EDITOR=nvim
 export QT_QPA_PLATFORM=wayland
 export MOZ_ENABLE_WAYLAND=1
 export ARTIX_DOTFILES_DIR=$TRUNK/repositories/mine/artix-dotfiles
+export PATH=$PATH:$HOME/scripts:$HOME/npm-global/bin
+export GDK_BACKEND=wayland
 #export $(dbus-launch)
 
 # Enable colors and change prompt
@@ -84,6 +86,9 @@ lfcd() {
 }
 zle -N lfcd
 bindkey -a 'l' lfcd
+
+# Autostart sway
+[ -z "$WAYLAND_DISPLAY" ] && [ "$(fgconsole)" -eq 1 ] && exec sway
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
