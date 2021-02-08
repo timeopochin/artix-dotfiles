@@ -26,13 +26,12 @@ sudo pacman -S --needed \
 	qutebrowser qt5-wayland \
 	man-db \
 	ttf-fantasque-sans-mono \
-	openscad \
 	dash \
-	light \
-	npm \
-	wf-recorder slurp
+	light
+#npm \
+#wf-recorder slurp \
 #python-pynvim \
-#texlive-core \
+#texlive-core
 
 # Install AUR packages
 if ! command -v yay &> /dev/null
@@ -43,8 +42,8 @@ fi
 yay -S --needed \
 	foot foot-terminfo \
 	lf \
-	typeracer \
 	dashbinsh
+#typeracer \
 #squeekboard \
 
 # Get the dotfiles
