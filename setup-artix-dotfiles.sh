@@ -42,9 +42,9 @@ fi
 yay -S --needed \
 	foot foot-terminfo \
 	lf \
+	squeekboard \
 	dashbinsh
 #typeracer \
-#squeekboard \
 
 # Get the dotfiles
 [ ! -d $REPOSDIR/mine/artix-dotfiles ] && git clone https://github.com/timeopochin/artix-dotfiles $REPOSDIR/mine/artix-dotfiles
@@ -52,13 +52,13 @@ $REPOSDIR/mine/artix-dotfiles/sync-artix-dotfiles.sh $REPOSDIR/mine/artix-dotfil
 sh -c 'curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 #sudo cp $REPOSDIR/mine/artix-dotfiles/rsit /usr/share/X11/xkb/symbols/rsit
 
-#if [ ! -f /usr/share/dbus-1/services/sm.puri.OSK0.service ]
-#then
-	#echo '[D-BUS Service]' > $HOME/temporary-files/sm.puri.OSK0.service
-	#echo 'Name=sm.puri.OSK0' >> $HOME/temporary-files/sm.puri.OSK0.service
-	#echo 'Exec=/usr/bin/squeekboard' >> $HOME/temporary-files/sm.puri.OSK0.service
-	#sudo cp $HOME/temporary-files/sm.puri.OSK0.service /usr/share/dbus-1/services/sm.puri.OSK0.service
-#fi
+if [ ! -f /usr/share/dbus-1/services/sm.puri.OSK0.service ]
+then
+	echo '[D-BUS Service]' > $HOME/temporary-files/sm.puri.OSK0.service
+	echo 'Name=sm.puri.OSK0' >> $HOME/temporary-files/sm.puri.OSK0.service
+	echo 'Exec=/usr/bin/squeekboard' >> $HOME/temporary-files/sm.puri.OSK0.service
+	sudo cp $HOME/temporary-files/sm.puri.OSK0.service /usr/share/dbus-1/services/sm.puri.OSK0.service
+fi
 
 # Change the default shell
 [ $SHELL != /bin/zsh ] && chsh $USER -s /bin/zsh

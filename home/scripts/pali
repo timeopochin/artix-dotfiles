@@ -1,0 +1,169 @@
+#!/bin/python
+
+import sys
+from os import makedirs, rename
+from os.path import exists, expanduser
+from pickle import load, dump
+from datetime import datetime, timedelta
+
+def usage():
+    print('''
+USAGE: pali start <tag> <description>
+       pali [start|stop|current|preview|breakdown]
+''')
+
+def start(argv, startTime):
+
+    # Stop current session
+    stop(startTime, supressMessage = True)
+
+    # Load previous session tag and description
+    with open(CHUNK, 'rb') as chunkFile:
+        chunk = load(chunkFile)
+
+    # Get the tag and description
+    if argv:
+        tag = argv[0]
+        description = ' '.join(argv[1:])
+
+    elif chunk:
+        tag = chunk[-1][0]
+        description = chunk[-1][1]
+
+    else:
+        usage()
+        print('Could not create session based on the previous one as it does not exist. Specify a tag and description.')
+        return
+
+    # Create new session
+    with open(SESSION, 'wb') as sessionFile:
+        dump([tag, description, startTime], sessionFile)
+    print('Session `{}: {}` was started.'.format(tag, description))
+
+def createBlank(filePath):
+    with open(filePath, 'wb') as openedFile:
+        dump([], openedFile)
+
+def formatTime(timedelta):
+    hours = timedelta.seconds // 3600 + 24*timedelta.days
+    minutes = (timedelta.seconds - hours*3600) // 60
+    return f'{hours}h{minutes}'
+
+def stop(endTime, supressMessage = False):
+    sessionWasActive = False
+
+    with open(SESSION, 'rb') as sessionFile:
+        session = load(sessionFile)
+        if session:
+
+            # Append session to chunk
+            with open(CHUNK, 'rb') as chunkFile:
+                chunk = load(chunkFile)
+
+            session.append(endTime)
+            chunk.append(tuple(session))
+
+            with open(CHUNK, 'wb') as chunkFile:
+                dump(chunk, chunkFile)
+
+            print('Session `{}: {}` was finished with a length of {}'.format(session[0], session[1], formatTime(session[3] - session[2])))
+
+            sessionWasActive = True
+
+    # Clear the session file if needed
+    if sessionWasActive:
+        createBlank(SESSION)
+
+    if not (sessionWasActive or supressMessage):
+        print('Stopping has no effect as there isn\'t an active session.')
+
+def current(now):
+    with open(SESSION, 'rb') as sessionFile:
+        session = load(sessionFile)
+        if session:
+            print('Session `{}: {}` has been active for {}'.format(session[0], session[1], formatTime(now - session[2])))
+        else:
+            print('There are no sessions currently active.')
+
+def preview(now):
+
+    # Stop current session
+    stop(now, supressMessage = True)
+
+    with open(CHUNK, 'rb') as chunkFile:
+        chunk = load(chunkFile)
+
+    if chunk:
+        chunkStart = chunk[0][2]
+        tags = {}
+
+        # Calculate lengths
+        for session in chunk:
+            if session[0] not in tags:
+                tags[session[0]] = []
+            tags[session[0]].append((session[1], session[3] - session[2]))
+
+        print('Work in the last {} day(s):\n'.format((now - chunkStart).days + 1))
+
+        # Display the sessions
+        grandTotal = timedelta()
+        for tag in tags:
+            tagTotal = timedelta()
+            print(f'Tag: {tag}', end = '\n\t')
+            for session in tags[tag]:
+                print(f'{formatTime(session[1])} {session[0]}', end='\n\t')
+                tagTotal += session[1]
+            print(f'Total: {formatTime(tagTotal)}\n')
+            grandTotal += tagTotal
+        print(f'Grand Total: {formatTime(grandTotal)}')
+    else:
+        print('No preview available. Create a new session first.')
+
+def archive(now):
+    timeArchived = now.strftime('%d-%m-%Y')
+    rename(CHUNK, f'{ARCHIVE}/{timeArchived}')
+
+LOCAL = expanduser('~/.local/share/pali')
+ARCHIVE = f'{LOCAL}/archive'
+CHUNK = f'{LOCAL}/chunk'
+SESSION = f'{LOCAL}/session'
+
+if __name__ == '__main__':
+
+    # Create local files
+    if not exists(LOCAL):
+        makedirs(LOCAL)
+    if not exists(ARCHIVE):
+        makedirs(ARCHIVE)
+    if not exists(SESSION):
+        createBlank(SESSION)
+    if not exists(CHUNK):
+        createBlank(CHUNK)
+
+    argv = sys.argv
+    now = datetime.now()
+    if len(argv) < 2:
+        usage()
+    elif argv[1] == 'start':
+
+        # Start session
+        start(argv[2:], now)
+    elif argv[1] == 'stop':
+
+        # Stop session
+        stop(now)
+    elif argv[1] == 'current':
+
+        # Show how long the current session has been active
+        current(now)
+    elif argv[1] == 'preview':
+
+        # Preview work since last archive
+        preview(now)
+    elif argv[1] == 'breakdown':
+
+        # Preview and archive work since last archive
+        preview(now)
+        archive(now)
+    else:
+        usage()

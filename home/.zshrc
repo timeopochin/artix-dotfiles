@@ -3,12 +3,19 @@ TRUNK=~/¦
 
 # Environmantal variables
 export EDITOR=nvim
-export QT_QPA_PLATFORM=wayland
-export MOZ_ENABLE_WAYLAND=1
 export ARTIX_DOTFILES_DIR=$TRUNK/repositories/mine/artix-dotfiles
-export PATH=$PATH:$HOME/scripts:$HOME/npm-global/bin
-export GDK_BACKEND=wayland
+export PATH=$PATH:$HOME/scripts:$HOME/npm-global/bin:$HOME/go/bin
 #export $(dbus-launch)
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+	export QT_QPA_PLATFORM=wayland
+	export MOZ_ENABLE_WAYLAND=1
+	export GDK_BACKEND=wayland
+else
+	export QT_QPA_PLATFORM=""
+	export MOZ_ENABLE_WAYLAND=
+	export GDK_BACKEND=x11
+fi
 
 # Enable colors and change prompt
 PROMPT="%B %F{%(0?.green.red}•%f %F{cyan}%1~%f %b"
@@ -88,7 +95,7 @@ zle -N lfcd
 bindkey -a 'l' lfcd
 
 # Autostart sway
-[ -z "$WAYLAND_DISPLAY" ] && [ "$(fgconsole)" -eq 1 ] && exec sway
+#[ -z "$WAYLAND_DISPLAY" ] && [ "$(fgconsole)" -eq 1 ] && exec sway
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
